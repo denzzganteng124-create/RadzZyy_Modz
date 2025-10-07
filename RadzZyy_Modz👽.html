@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RadzZyyModz👽</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0a0a0a, #1a1a1a, #2a0a0a);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(255, 0, 0, 0.05) 0%, transparent 50%);
+            animation: backgroundPulse 8s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Tampilan Login */
+        .login-screen {
+            text-align: center;
+            animation: slideInUp 0.8s ease-out;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .login-title {
+            color: #ff0000;
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                0 0 40px #ff0000;
+            animation: neonFlicker 2s infinite alternate;
+            letter-spacing: 2px;
+        }
+        
+        @keyframes neonFlicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 40px #ff0000;
+                opacity: 1;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+                opacity: 0.8;
+            }
+        }
+        
+        .login-form {
+            background: rgba(26, 26, 26, 0.9);
+            padding: 40px 30px;
+            border-radius: 15px;
+            border: 2px solid #ff0000;
+            box-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.3),
+                inset 0 0 20px rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            animation: glowPulse 3s infinite;
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.1); }
+            50% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.5), inset 0 0 30px rgba(255, 0, 0, 0.2); }
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+            position: relative;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .form-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(42, 42, 42, 0.8);
+            border: 2px solid #444;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input:focus {
+            border-color: #ff0000;
+            box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+            outline: none;
+        }
+        
+        .login-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .login-btn:hover::before {
+            left: 100%;
+        }
+        
+        .login-btn:hover {
+            background: linear-gradient(135deg, #cc0000, #ff0000);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 0, 0, 0.4);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .error-message {
+            color: #ff4444;
+            margin-top: 15px;
+            display: none;
+            font-weight: bold;
+            text-align: center;
+            animation: shake 0.5s ease-in-out;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+        
+        /* Tampilan Main */
+        .main-screen {
+            display: none;
+            text-align: center;
+            animation: scaleIn 0.6s ease-out;
+        }
+        
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        
+        .neon-text {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                0 0 40px #ff0000;
+            animation: neonFlicker 1.5s infinite alternate;
+            margin-bottom: 40px;
+            letter-spacing: 3px;
+        }
+        
+        .features-container {
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 15px;
+            padding: 30px;
+            border: 2px solid #ff0000;
+            box-shadow: 
+                0 0 25px rgba(255, 0, 0, 0.3),
+                inset 0 0 25px rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .feature-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 0, 0, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            background: rgba(255, 0, 0, 0.05);
+            border-radius: 8px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+        
+        .feature-name {
+            font-size: 1.2rem;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 65px;
+            height: 32px;
+        }
+        
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #333;
+            transition: .4s;
+            border-radius: 34px;
+            border: 2px solid #444;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 24px;
+            width: 24px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        input:checked + .slider {
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            border-color: #ff0000;
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(33px);
+        }
+        
+        /* Notifikasi */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            color: white;
+            padding: 18px 25px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            box-shadow: 0 5px 20px rgba(255, 0, 0, 0.4);
+            transform: translateX(400px);
+            transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 1000;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        .notification.show {
+            transform: translateX(0);
+        }
+        
+        .alien-emoji {
+            font-size: 1.3rem;
+            margin-right: 8px;
+        }
+        
+        /* Floating particles */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+            opacity: 0.3;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.5;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+    
+    <!-- Notifikasi -->
+    <div class="notification" id="notification">
+        <span class="alien-emoji">👽</span>
+        <span id="notificationText"></span>
+    </div>
+    
+    <!-- Tampilan Login -->
+    <div class="container">
+        <div class="login-screen" id="loginScreen">
+            <h1 class="login-title">RadzZyyModz👽</h1>
+            <div class="login-form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password">
+                </div>
+                <button class="login-btn" onclick="login()">ACCESS MODZ</button>
+                <div class="error-message" id="errorMessage">
+                    ❌ Invalid Password!
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tampilan Main -->
+        <div class="main-screen" id="mainScreen">
+            <div class="neon-text">RadzZyyModz👽</div>
+            <div class="features-container">
+                <div class="feature-item">
+                    <span class="feature-name">Aimlock</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="aimlock">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Easy Drag</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="easydrag">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Headrick</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="headrick">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Low Recoil</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="lowrecoil">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Aimtracking</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="aimtracking">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Aimsmooth</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="aimsmooth">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Stabilizer</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="stabilizer">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Stabilaim</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="stabilaim">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="feature-item">
+                    <span class="feature-name">Bypass</span>
+                    <label class="toggle-switch">
+                        <input type="checkbox" id="bypass">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 3 + 4) + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+            
+            if (password === 'gacorbangetbangotwbuylagiinimah') {
+                // Login berhasil
+                document.getElementById('loginScreen').style.display = 'none';
+                document.getElementById('mainScreen').style.display = 'block';
+                errorMessage.style.display = 'none';
+            } else {
+                // Login gagal
+                errorMessage.style.display = 'block';
+                document.getElementById('password').value = '';
+                
+                // Shake animation for error
+                errorMessage.style.animation = 'none';
+                setTimeout(() => {
+                    errorMessage.style.animation = 'shake 0.5s ease-in-out';
+                }, 10);
+            }
+        }
+        
+        // Fungsi untuk menampilkan notifikasi
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            const notificationText = document.getElementById('notificationText');
+            
+            notificationText.textContent = message;
+            notification.classList.add('show');
+            
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+        
+        // Event listener untuk toggle switches
+        document.querySelectorAll('.toggle-switch input').forEach(toggle => {
+            toggle.addEventListener('change', function() {
+                const featureName = this.id.charAt(0).toUpperCase() + this.id.slice(1);
+                const status = this.checked ? 'ACTIVATED' : 'DEACTIVATED';
+                
+                // Tampilkan notifikasi
+                showNotification(`${featureName} ${status}`);
+                
+                // Tidak ada aksi lain - fitur tidak berfungsi
+                console.log(`${featureName} ${status}`);
+            });
+        });
+        
+        // Enter key untuk login
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+        
+        document.getElementById('username').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                login();
+            }
+        });
+        
+        // Initialize particles
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            
+            // Focus on username field
+            document.getElementById('username').focus();
+        });
+    </script>
+</body>
+</html>
